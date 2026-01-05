@@ -2,78 +2,123 @@
 
 ## Project Overview
 
-This project analyzes customer shopping behavior using transactional retail data to uncover insights related to customer value, product performance, and purchasing patterns. The goal is to transform raw customer transactions into clear, decision oriented insights using SQL, Python, and Power BI.
+This project analyzes customer shopping behavior using transactional retail data to uncover patterns in customer spending, product performance, discounts, subscriptions, and purchasing frequency. The goal is to transform raw transaction data into actionable insights that support business and marketing decisions.
 
-The project demonstrates an end to end data analytics workflow, from data extraction and preparation to analysis and dashboard driven communication.
+The workflow uses **SQL for querying and segmentation**, **Python for data cleaning and feature engineering**, and **Power BI for interactive visualization**.
 
-## Business Objective
+## Business Questions Addressed
 
-Businesses often collect large volumes of customer data but struggle to convert it into actionable insights. This project focuses on answering practical business questions such as
+The analysis focuses on practical business questions:
 
-How customer value differs across demographics and subscription status
-Which product categories generate the most revenue and sales
-How customer satisfaction relates to purchasing behavior
-Which customer segments contribute most to overall business performance
+* How does revenue differ across customer demographics such as gender and age groups?
+* Do subscribed or repeat customers spend more and contribute higher revenue?
+* Which products and categories perform best in terms of sales and customer ratings?
+* How do discounts and shipping types influence customer spending?
+* Which customer segments contribute most to overall revenue?
 
-## Dataset Description
+## Data Overview
 
-The dataset consists of customer shopping transactions that include
+The dataset contains approximately 3,900 customer transactions, including:
 
-Customer attributes such as gender and age
-Product categories including accessories, clothing, footwear, and outerwear
-Purchase amounts and review ratings
-Subscription status and shipping type
+* Customer demographics: age and gender
+* Product and category details
+* Purchase amount and review ratings
+* Subscription status, discount usage, and shipping type
+* Purchase frequency and previous purchase history
 
-The structure reflects typical retail or e commerce transactional data used for customer behavior analysis.
+This structure reflects real-world retail transaction data commonly used in customer behavior analysis.
 
-## Tools and Technologies
+## SQL Analysis
 
-SQL was used for querying, aggregating, and analyzing customer level and product level data.
-Python was used for data cleaning, exploratory analysis, feature creation, and data validation.
-Power BI was used to build an interactive dashboard to visualize insights and support business exploration.
+SQL was used to perform structured analysis directly on the customer transaction table. Key analyses include:
 
-## Analytical Approach
+* Comparing revenue across male and female customers
+* Identifying customers who used discounts but still spent above average
+* Ranking top products by average review ratings
+* Comparing average purchase amount across different shipping types
+* Evaluating subscription impact by comparing average spend and total revenue between subscribers and non-subscribers
+* Calculating discount usage rates at the product level
+* Segmenting customers into new, returning, and loyal groups based on purchase history
+* Identifying top-selling products within each category using window functions
+* Analyzing repeat buyer behavior and its relationship with subscription status
+* Assessing revenue contribution by age group
 
-The analysis followed a structured and repeatable approach.
+These queries showcase **aggregation, filtering, subqueries, common table expressions, and window functions**, reflecting real analyst work.
 
-SQL queries were written to calculate key metrics such as total customers, revenue, sales, and category performance.
-Python was used to clean the data, analyze distributions, and prepare features such as age groups for analysis.
-Power BI was used to design a dashboard that connects metrics, segments, and trends in a single interactive view.
+## Python Analysis and Data Preparation
 
-## Power BI Dashboard Overview
+Python was used to clean, enrich, and prepare the data for deeper analysis and visualization. Key steps include:
 
-The Power BI dashboard was designed to provide both a high level summary and segmented views of customer behavior.
+* Initial data exploration and validation using pandas
+* Handling missing review ratings by imputing category-level medians
+* Standardizing column names for consistency and downstream usability
+* Creating derived features such as age groups using quantile-based binning
+* Transforming purchase frequency categories into numeric day-based values for comparison
+* Identifying and removing redundant columns to improve data quality
+* Loading the cleaned dataset into a SQL database via SQLAlchemy for integration with SQL analysis
 
-The top section presents key performance indicators including total number of customers, average purchase amount, and average review rating to summarize overall business health.
+These steps mirror **real-world data preparation tasks** expected from an entry-to-mid level data analyst.
 
-Interactive filters allow segmentation by subscription status, gender, product category, and shipping type, enabling comparison across different customer groups.
+## Power BI Dashboard
 
-The middle section focuses on customer composition and product performance. A pie chart shows the distribution of customers by subscription status, while bar charts display revenue and sales by product category to highlight differences between value driven and volume driven categories.
+The dashboard turns SQL metrics and Python features into **interactive business insights**. Each element is designed to highlight meaningful patterns and support decision-making.
 
-The bottom section analyzes customer demographics by age group, presenting both revenue and sales volume to identify which age segments generate the highest value versus the highest transaction count.
+### Dashboard Structure
 
-Together, these visuals support decisions related to customer segmentation, product prioritization, and subscription strategy.
+**Top Section – Key Performance Indicators**
+
+* Total customers – overview of customer base
+* Average purchase amount – tracks revenue trends
+* Average review rating – evaluates overall product satisfaction
+
+**Interactive Filters**
+
+* Subscription status – analyze subscribers vs non-subscribers
+* Gender – evaluate spending and product preferences
+* Product category – assess category performance
+* Shipping type – detect operational or behavioral patterns
+
+**Middle Section – Customer Composition and Product Performance**
+
+* Pie chart of customers by subscription status – visualizes recurring vs new customers
+* Bar charts for revenue and sales by category – highlights value-driven vs volume-driven categories
+
+**Bottom Section – Demographics Analysis**
+
+* Revenue and sales by age group – identifies high-value vs high-volume customer segments
+* Supports marketing and product strategy decisions
+
+### Purpose and Impact
+
+* Stakeholders can identify high-value customers and profitable products at a glance
+* Interactivity allows exploration without additional analysis
+* Supports actionable business decisions such as subscription campaigns, discount targeting, and inventory prioritization
 
 ## Key Insights
 
-Customer spending is not evenly distributed, with certain segments contributing a disproportionate share of revenue.
-Product categories differ significantly in both revenue contribution and sales volume, indicating different pricing and demand dynamics.
-Subscription status provides a useful lens for understanding customer loyalty and value.
-Age group analysis reveals differences between high value and high volume customer segments.
+* Customer spending is unevenly distributed; a small segment contributes disproportionately to revenue
+* Subscribed and repeat customers generate higher total revenue than non-subscribers
+* Certain products and categories consistently outperform others in revenue and ratings
+* Discount usage varies by product, indicating opportunities for targeted promotions
+* Shipping type and purchase frequency influence average spend
+* Age groups reveal differences between high-value and high-volume segments
 
-## Project Outcomes
+## Why This Project Matters
 
-This project demonstrates essential data analyst skills, including
+This project demonstrates core data analyst competencies:
 
-Translating business questions into analytical tasks
-Writing structured SQL queries
-Preparing and analyzing data using Python
-Communicating insights through dashboards rather than raw data
+* Translating business questions into SQL queries
+* Cleaning and enriching data using Python
+* Applying analytical thinking beyond surface-level exploration
+* Communicating insights through dashboards instead of raw tables
+
+It mirrors the **type of work expected in entry-to-mid level data analyst roles**.
 
 ## Repository Structure
 
-Customer_Shopping_Behavior_Analysis.ipynb contains Python based data cleaning and analysis.
-customer_analysis.sql contains SQL queries used for data extraction and aggregation.
-Customer Behavior Dashboard.pbix contains the interactive Power BI dashboard.
+* `customer_analysis.sql` – SQL queries for segmentation, revenue, and product performance analysis
+* `Customer_Shopping_Behavior_Analysis.ipynb` – Python notebook for data cleaning, feature engineering, and exploratory analysis
+* `Customer_Behavior_Dashboard.pbix` – interactive Power BI dashboard
 
 
+If you want, I can also **turn this into resume bullets with measurable impact**, so it’s ready for LinkedIn or an application. That’s the next step most candidates skip but it makes a huge difference. Do you want me to do that?
