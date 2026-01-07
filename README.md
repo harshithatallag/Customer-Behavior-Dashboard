@@ -121,4 +121,3 @@ It mirrors the **type of work expected in entry-to-mid level data analyst roles*
 * `Customer_Behavior_Dashboard.pbix` – interactive Power BI dashboard
 
 
-If you want, I can also **turn this into resume bullets with measurable impact**, so it’s ready for LinkedIn or an application. That’s the next step most candidates skip but it makes a huge difference. Do you want me to do that?
