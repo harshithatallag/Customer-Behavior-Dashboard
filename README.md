@@ -1,123 +1,140 @@
-# Customer Shopping Behavior Analysis
+## Customer Shopping Behavior Analytics Dashboard
 
-## Project Overview
+**Python | SQL | Power BI**
 
-This project analyzes customer shopping behavior using transactional retail data to uncover patterns in customer spending, product performance, discounts, subscriptions, and purchasing frequency. The goal is to transform raw transaction data into actionable insights that support business and marketing decisions.
+### Overview
 
-The workflow uses **SQL for querying and segmentation**, **Python for data cleaning and feature engineering**, and **Power BI for interactive visualization**.
+End to end data analytics project analyzing retail customer transaction data to uncover customer spending patterns, subscription impact, product performance, and demographic driven revenue trends.
 
-## Business Questions Addressed
+This project demonstrates the ability to translate business questions into KPIs, prepare analytics ready data using Python, perform structured SQL analysis, and deliver executive level insights through Power BI dashboards.
 
-The analysis focuses on practical business questions:
+---
 
-* How does revenue differ across customer demographics such as gender and age groups?
-* Do subscribed or repeat customers spend more and contribute higher revenue?
-* Which products and categories perform best in terms of sales and customer ratings?
-* How do discounts and shipping types influence customer spending?
-* Which customer segments contribute most to overall revenue?
+### Business Objective
 
-## Data Overview
+The business required a consolidated analytical view to:
 
-The dataset contains approximately 3,900 customer transactions, including:
+Understand which customer segments contribute most to revenue
+Evaluate the impact of subscriptions, discounts, and shipping types on spending
+Identify high performing products and categories
+Support data driven decisions for marketing, pricing, and customer retention
 
-* Customer demographics: age and gender
-* Product and category details
-* Purchase amount and review ratings
-* Subscription status, discount usage, and shipping type
-* Purchase frequency and previous purchase history
+---
 
-This structure reflects real-world retail transaction data commonly used in customer behavior analysis.
+### Key KPIs
 
-## SQL Analysis
+All KPIs were calculated in SQL and validated against Power BI visuals.
 
-SQL was used to perform structured analysis directly on the customer transaction table. Key analyses include:
+* Total Customers
+* Total Revenue
+* Average Purchase Amount
+* Average Review Rating
+* Revenue by Category
+* Revenue by Age Group
+* Subscriber vs Non Subscriber Revenue
 
-* Comparing revenue across male and female customers
-* Identifying customers who used discounts but still spent above average
-* Ranking top products by average review ratings
-* Comparing average purchase amount across different shipping types
-* Evaluating subscription impact by comparing average spend and total revenue between subscribers and non-subscribers
-* Calculating discount usage rates at the product level
-* Segmenting customers into new, returning, and loyal groups based on purchase history
-* Identifying top-selling products within each category using window functions
-* Analyzing repeat buyer behavior and its relationship with subscription status
-* Assessing revenue contribution by age group
+---
 
-These queries showcase **aggregation, filtering, subqueries, common table expressions, and window functions**, reflecting real analyst work.
+### Tools & Technologies
 
-## Python Analysis and Data Preparation
+* Python
+* Pandas
+* MySQL
+* Power BI
 
-Python was used to clean, enrich, and prepare the data for deeper analysis and visualization. Key steps include:
+---
 
-* Initial data exploration and validation using pandas
-* Handling missing review ratings by imputing category-level medians
+### Phase 1: Data Preparation and Feature Engineering (Python)
+
+Key preparation steps included:
+
+* Data validation and exploratory analysis
+* Handling missing review ratings using category level median imputation
 * Standardizing column names for consistency and downstream usability
-* Creating derived features such as age groups using quantile-based binning
-* Transforming purchase frequency categories into numeric day-based values for comparison
-* Identifying and removing redundant columns to improve data quality
-* Loading the cleaned dataset into a SQL database via SQLAlchemy for integration with SQL analysis
+* Creating derived features such as age groups and numeric purchase frequency
+* Removing redundant columns to improve data quality
+* Loading cleaned data into SQL databases using SQLAlchemy
 
-These steps mirror **real-world data preparation tasks** expected from an entry-to-mid level data analyst.
+This process ensured the dataset was analytics ready for SQL querying and BI reporting.
 
-## Power BI Dashboard
+---
 
-The dashboard turns SQL metrics and Python features into **interactive business insights**. Each element is designed to highlight meaningful patterns and support decision-making.
+### Phase 2: SQL Analysis
 
-### Dashboard Structure
+SQL was used to answer business critical questions including:
 
-**Top Section – Key Performance Indicators**
+* Revenue comparison between male and female customers
+* Identification of discount users who spent above average
+* Top products ranked by average customer review rating
+* Comparison of average purchase value across shipping types
+* Subscription impact analysis across customer count, average spend, and total revenue
+* Product level discount usage rates
+* Customer segmentation into new, returning, and loyal groups
+* Top selling products within each category using window functions
+* Repeat buyer behavior and its relationship with subscription status
+* Revenue contribution by age group
 
-* Total customers – overview of customer base
-* Average purchase amount – tracks revenue trends
-* Average review rating – evaluates overall product satisfaction
+This phase demonstrates practical SQL usage including aggregations, subqueries, CTEs, and window functions.
 
-**Interactive Filters**
+---
 
-* Subscription status – analyze subscribers vs non-subscribers
-* Gender – evaluate spending and product preferences
-* Product category – assess category performance
-* Shipping type – detect operational or behavioral patterns
+### Phase 3: Power BI Dashboard Development
 
-**Middle Section – Customer Composition and Product Performance**
+Power BI was used to transform SQL outputs into interactive, decision focused dashboards.
 
-* Pie chart of customers by subscription status – visualizes recurring vs new customers
-* Bar charts for revenue and sales by category – highlights value-driven vs volume-driven categories
+#### Dashboard Capabilities
 
-**Bottom Section – Demographics Analysis**
+* KPI cards summarizing customer count, average spend, and satisfaction
+* Interactive slicers for subscription status, gender, category, and shipping type
+* Revenue and sales breakdown by product category
+* Customer distribution by subscription status
+* Revenue and sales analysis across age groups
 
-* Revenue and sales by age group – identifies high-value vs high-volume customer segments
-* Supports marketing and product strategy decisions
+The dashboard enables stakeholders to quickly identify high value customers, profitable categories, and behavioral trends without additional analysis.
 
-### Purpose and Impact
+---
 
-* Stakeholders can identify high-value customers and profitable products at a glance
-* Interactivity allows exploration without additional analysis
-* Supports actionable business decisions such as subscription campaigns, discount targeting, and inventory prioritization
+### Power BI Dashboard Preview
 
-## Key Insights
+Below is a snapshot of the interactive Power BI dashboard created for this project.
 
-* Customer spending is unevenly distributed; a small segment contributes disproportionately to revenue
-* Subscribed and repeat customers generate higher total revenue than non-subscribers
-* Certain products and categories consistently outperform others in revenue and ratings
-* Discount usage varies by product, indicating opportunities for targeted promotions
-* Shipping type and purchase frequency influence average spend
-* Age groups reveal differences between high-value and high-volume segments
+**Dashboard Screenshot**
 
-## Why This Project Matters
+<img width="1626" height="901" alt="Image" src="https://github.com/user-attachments/assets/eecbc25b-6a02-44f1-b184-b67e03647009" />
+The full interactive dashboard is available in the repository as
+`Customer_Behavior_Dashboard.pbix`.
 
-This project demonstrates core data analyst competencies:
+---
 
-* Translating business questions into SQL queries
-* Cleaning and enriching data using Python
-* Applying analytical thinking beyond surface-level exploration
-* Communicating insights through dashboards instead of raw tables
+### Key Insights
 
-It mirrors the **type of work expected in entry-to-mid level data analyst roles**.
+* Revenue is concentrated among repeat and subscribed customers
+* Subscribed customers generate higher total revenue and higher average spend
+* Clothing and Accessories contribute the largest share of revenue
+* Discount usage varies significantly by product, indicating opportunities for targeted promotions
+* Age groups show clear differences between purchase frequency and revenue contribution
 
-## Repository Structure
+---
 
-* `customer_analysis.sql` – SQL queries for segmentation, revenue, and product performance analysis
-* `Customer_Shopping_Behavior_Analysis.ipynb` – Python notebook for data cleaning, feature engineering, and exploratory analysis
-* `Customer_Behavior_Dashboard.pbix` – interactive Power BI dashboard
+### Why This Project Matters
 
+This project reflects real world data analyst work by:
+
+* Translating ambiguous business questions into structured analysis
+* Combining Python, SQL, and BI tools in a single workflow
+* Validating metrics instead of relying solely on BI calculations
+* Communicating insights visually for non technical stakeholders
+
+It demonstrates readiness for entry to mid level data analyst roles.
+
+---
+
+### Repository Structure
+
+```
+├── Customer_Shopping_Behavior_Analysis.ipynb
+├── customer_analysis.sql
+├── Customer_Behavior_Dashboard.pbix
+├── customer_shopping_behavior.csv
+```
 
